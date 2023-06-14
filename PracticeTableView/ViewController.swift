@@ -31,11 +31,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //cellID"cell"が存在すれば再利用し、無ければcellID"cell"でセルを作成
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-            return UITableViewCell(style: .default, reuseIdentifier: "cell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
         
         cell.textLabel?.text = items[indexPath.row]
+        cell.textLabel?.textColor = UIColor.black
+        cell.backgroundColor = UIColor.white
         
         return cell
         
